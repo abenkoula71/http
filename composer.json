@@ -18,7 +18,9 @@
 		"php": ">=8.0",
 		"ext-fileinfo": "*",
 		"ext-json": "*",
-		"natanfelles/array-simple": "^1.1"
+		"natanfelles/array-simple": "^1.1",
+		"natanfelles/cache": "^2.0",
+		"natanfelles/log": "^2.0"
 	},
 	"require-dev": {
 		"ext-xdebug": "*",
