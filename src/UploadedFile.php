@@ -30,6 +30,7 @@ class UploadedFile
     protected int $size;
     protected ?string $tmpName = null;
     protected ?string $type = null;
+    protected ?string $fullPath = null;
     /**
      * @see http://svn.apache.org/repos/asf/httpd/httpd/trunk/docs/conf/mime.types
      *
@@ -826,6 +827,7 @@ class UploadedFile
     public function __construct(array $file)
     {
         $this->name = $file['name'];
+        $this->fullPath = $file['full_path'];
         $this->clientType = $file['type'];
         $this->tmpName = $file['tmp_name'];
         $this->error = $file['error'];
@@ -928,6 +930,14 @@ class UploadedFile
     public function getTmpName() : string
     {
         return $this->tmpName;
+    }
+
+    /**
+     * @return string
+     */
+    public function getFullPath() : string
+    {
+        return $this->fullPath;
     }
 
     #[Pure]

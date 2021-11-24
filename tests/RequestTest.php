@@ -256,6 +256,15 @@ final class RequestTest extends TestCase
                     ],
                     2 => 'Other File.php',
                 ],
+                'full_path' => [
+                    1 => [
+                        'aa' => [
+                            0 => 'Test.php',
+                            1 => '',
+                        ],
+                    ],
+                    2 => 'scripts/Other File.php',
+                ],
                 'type' => [
                     1 => [
                         'aa' => [
@@ -295,6 +304,7 @@ final class RequestTest extends TestCase
             ],
             'foo' => [
                 'name' => '',
+                'full_path' => '',
                 'type' => '',
                 'tmp_name' => '',
                 'error' => 4,
@@ -445,6 +455,15 @@ final class RequestTest extends TestCase
                     ],
                     2 => 'Screen Shot 2018-10-28 at 04.51.13.png',
                 ],
+                'full_path' => [
+                    1 => [
+                        'aa' => [
+                            0 => 'images/ocean/Screen Shot 2018-10-28 at 04.53.13.png',
+                            1 => '',
+                        ],
+                    ],
+                    2 => 'Screen Shot 2018-10-28 at 04.51.13.png',
+                ],
                 'type' => [
                     1 => [
                         'aa' => [
@@ -484,6 +503,7 @@ final class RequestTest extends TestCase
             ],
             'foo' => [
                 'name' => '',
+                'full_path' => '',
                 'type' => '',
                 'tmp_name' => '',
                 'error' => 4,
