@@ -18,19 +18,18 @@ use JetBrains\PhpStorm\Pure;
  */
 class UploadedFile
 {
-    protected ?string $clientExtension = null;
-    protected ?string $clientType = null;
-    protected ?string $clientName = null;
+    protected string $name;
+    protected string $fullPath;
+    protected string $type;
+    protected string $tmpName;
     protected int $error;
-    protected ?string $errorMessage = null;
-    protected ?string $extension = null;
+    protected int $size;
+    protected string $clientType;
+    protected string $clientExtension;
+    protected string $extension;
+    protected string $errorMessage;
     protected bool $isMoved = false;
     protected ?string $destination = null;
-    protected ?string $name = null;
-    protected int $size;
-    protected ?string $tmpName = null;
-    protected ?string $type = null;
-    protected ?string $fullPath = null;
     /**
      * @see http://svn.apache.org/repos/asf/httpd/httpd/trunk/docs/conf/mime.types
      *
@@ -845,7 +844,7 @@ class UploadedFile
      */
     public function getClientExtension() : string
     {
-        if ($this->clientExtension === null) {
+        if ( ! isset($this->clientExtension)) {
             $this->clientExtension = (string) \pathinfo($this->getName(), \PATHINFO_EXTENSION);
         }
         return $this->clientExtension;
@@ -853,7 +852,7 @@ class UploadedFile
 
     public function getExtension() : string
     {
-        if ($this->extension !== null) {
+        if (isset($this->extension)) {
             return $this->extension;
         }
         $mimeExtensions = static::$mimeTypes[\strtolower($this->getType())] ?? [];
@@ -899,7 +898,7 @@ class UploadedFile
      */
     public function getErrorMessage() : string
     {
-        if ($this->errorMessage === null) {
+        if ( ! isset($this->errorMessage)) {
             $this->setErrorMessage($this->error);
         }
         return $this->errorMessage;
@@ -951,7 +950,7 @@ class UploadedFile
      */
     public function getType() : string
     {
-        if ($this->type === null) {
+        if ( ! isset($this->type)) {
             $this->type = \mime_content_type($this->tmpName)
                 ?: 'application/octet-stream';
         }
